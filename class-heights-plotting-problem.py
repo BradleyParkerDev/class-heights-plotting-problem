@@ -38,11 +38,14 @@ male_data_frame.index = x
 print(male_data_frame)
 
 
-# Plot the first line graph from df1
-plt.plot(x, male_data_frame['Height'], label='Male', color='red')
 
-# Plot the second line graph from df2
-plt.plot(x, female_data_frame['Height'], label='Female', color='blue')
+# ///////////////////////////////////////////////////////////////
+# Lineplot
+# ///////////////////////////////////////////////////////////////
+# Female / Male Line Plots 
+plt.plot(x, female_data_frame['Height'], label='Female', color='red')
+plt.plot(x, male_data_frame['Height'], label='Male', color='blue')
+
 # Add labels and a legend
 plt.xlabel('Number of Students')
 plt.ylabel('Heights (cm)')
@@ -54,31 +57,26 @@ plt.show()
 
 
 
-# Create a line plot
-# plt.plot(x, df['Height'])
 
+# ///////////////////////////////////////////////////////////////
+# Scatterplot
+# ///////////////////////////////////////////////////////////////
+# Create a single plot
+plt.figure(figsize=(6, 6))
+# Female / Male Scatter Points
+plt.scatter(female_data_frame['Gender'],female_data_frame['Height'], label='Individual', color='grey', marker='o', alpha=0.5)
+plt.scatter(male_data_frame['Gender'],male_data_frame['Height'], color='grey', marker='o', alpha=0.5)
 
+# Average Scatter Points
+plt.scatter('Female',female_data_frame['Height'].mean(), label='Average', color='red', marker='o', alpha=0.5,  s=100)
+plt.scatter('Male',male_data_frame['Height'].mean(), color='red', marker='o', alpha=0.5,  s=100)
 
+# Add labels and a legend
+plt.xlabel('Genders')
+plt.ylabel('Height (cm)')
+plt.legend()
 
-
-# # Adding labels and title
-# plt.xlabel('Students')
-# plt.ylabel('Heights (cm)')
-# plt.title('Class Heights')
-
-# # Display the plot
-# plt.show()
-
-
-
-# # Average Heights
-# average_heights = df.groupby('Gender')['Height'].mean()
-# gender = ['Female', 'Male']
-# heights =  [average_heights['female'], average_heights['male']]
-# average_heights = pd.DataFrame({'Gender': gender, 'Height': heights})
-# average_heights
-# plt.scatter(x = average_heights.index, y = 'Height',  data = average_heights)
-# plt.xlabel('Gender')
-# plt.ylabel('Heights (cm)')
-# plt.title('Average Class Heights (Gender)')
-# plt.show()
+# Show the plot
+plt.title('Class Heights (Gender)')
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.show()
