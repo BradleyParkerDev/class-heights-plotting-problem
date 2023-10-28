@@ -96,7 +96,7 @@ plt.show()
 
 
 # ///////////////////////////////////////////////////////////////
-# Scatterplot w/ Line  Class Heights vs Mean
+# Scatterplot w/ Line  Mean vs. Heights
 # ///////////////////////////////////////////////////////////////
 # 3) Create a separate column in the data frame to hold the difference from the mean height. 
 # Plot the difference from the mean against the heights on the same plot.
